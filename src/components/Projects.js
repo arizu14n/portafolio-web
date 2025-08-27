@@ -2,15 +2,17 @@ import React from 'react';
 
 const Projects = () => {
   const personalProjects = [
-    { name: 'Infopeliculas', url: '' },
-    { name: 'Templates - AZ', url: '' },
-    { name: '4toParcial_ArielZulian', url: '' },
-    { name: 'dashboard', url: '' },
+    { name: 'Infopeliculas', url: 'https://github.com/arizu14n/Infopeliculas.git' },
+    { name: 'Explorador Urbano', url: 'https://github.com/arizu14n/explorador-urbano.git' },
+    { name: 'Guionista de Emociones', url: 'https://github.com/arizu14n/Guionista-emociones.git' },
+    { name: 'ChatBot de Reclamos', url: 'https://github.com/arizu14n/chatbot---reclamos.git' },
   ];
 
   const collaborativeProjects = [
-    { name: 'Delishare', url: '' },
-    { name: 'Proyecto-CAC', url: '' },
+    { name: 'Delishare', url: 'https://github.com/arizu14n/Delishare.git' },
+    { name: 'Proyecto-CAC', url: 'https://github.com/Priscilla-Rojas/Proyecto-CAC.git' },
+    { name: 'Back-Proyecto-CAC', url: 'https://github.com/Priscilla-Rojas/Back-Proyecto-CAC.git' },    
+    { name: 'Mecanica Gaido', url: 'https://github.com/rocioluque/MecanicaGaido.git' },    
   ];
 
   return (
@@ -49,9 +51,9 @@ const Projects = () => {
           </div>
         </div>
         <div className="text-center mt-4">
-            <p className="lead">Puedes ver más de mi trabajo en mis perfiles de GitHub:</p>
+            <p className="lead">Puedes ver más de mi trabajo en mi perfil de GitHub:</p>
             <a href="https://github.com/arizu14n" className="btn btn-dark me-3" target="_blank" rel="noopener noreferrer">arizu14n</a>
-            <a href="https://github.com/arielzulian" className="btn btn-dark" target="_blank" rel="noopener noreferrer">arielzulian</a>
+            {/* <a href="https://github.com/arielzulian" className="btn btn-dark" target="_blank" rel="noopener noreferrer">arielzulian</a> */}
         </div>
       </div>
     </section>
