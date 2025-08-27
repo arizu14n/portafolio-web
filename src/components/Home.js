@@ -128,7 +128,7 @@ const Home = () => {
   return (
     <section id="home" className="d-flex align-items-center justify-content-center text-center" style={{ minHeight: '100vh', backgroundColor: '#343a40', color: 'white' }}>
       <div>
-        <img src="/logo_piramide_codigo.svg" alt="Logo AZ" width="200" height="200" className="mx-auto d-block mb-4 logo-circular" />
+        <img src={process.env.PUBLIC_URL + '/logo_piramide_codigo.svg'} alt="Logo AZ" width="200" height="200" className="mx-auto d-block mb-4 logo-circular" />
         <h1 style={{ textShadow: '2px 2px #1E1E1E' }}>
           {typedName}
           {showCursorName && <span className="blinking-cursor">|</span>}
