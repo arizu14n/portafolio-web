@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Home from './components/Home';
 import About from './components/About';
@@ -11,11 +11,13 @@ import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const [isHomeContentFlyingAway, setIsHomeContentFlyingAway] = useState(false);
+
   return (
     <div className="App">
-      <Header />
+      <Header setIsHomeContentFlyingAway={setIsHomeContentFlyingAway} />
       <main>
-        <Home />
+        <Home isHomeContentFlyingAway={isHomeContentFlyingAway} />
         <About />
         <Experience />
         <Projects />

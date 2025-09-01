@@ -115,3 +115,107 @@ main {
     clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
 }
+
+/* Wavy Separator Styles */
+.wavy-separator-container {
+  position: absolute; /* Posicionar absolutamente dentro de la sección Home */
+  bottom: 0; /* Pegar a la parte inferior de la sección Home */
+  left: 0;
+  width: 100%;
+  height: 100px; /* Altura de la sección de la onda */
+  overflow: hidden;
+  z-index: 10; /* Asegurar que esté por encima de otros elementos */
+}
+
+.wavy-figure {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.wavy-figure svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.wavy-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0; /* Inicialmente oculto */
+  transform: translateY(100%); /* Fuera de la vista, debajo */
+  transition: all 0.5s ease-out; /* Transición para el efecto de mazo de cartas */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Color del texto */
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.wavy-separator-container:hover .wavy-hover-effect {
+  opacity: 1; /* Visible al pasar el ratón */
+  transform: translateY(0); /* Se desliza hacia arriba */
+}
+
+.wavy-hover-effect svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Detrás del texto */
+}
+
+.wavy-text-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espacio entre flechas y texto */
+  position: relative;
+  top: -20px; /* Ajustar para que siga la onda */
+}
+
+.wavy-text-content .arrow-down {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Gust of Wind Animation */
+@keyframes gust-of-wind {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(30deg) scale(0.5); /* Fly up and away */
+    opacity: 0;
+  }
+}
+
+.fly-away {
+  animation: gust-of-wind 1s ease-out forwards; /* 1 second animation */
+}
+
+/* Border Transition for Cards and List Items */
+.card, .list-group-item {
+  border: 1px solid #343a40; /* Default black border */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.card:hover, .list-group-item:hover {
+  border-color: #E63946; /* Red border on hover */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}

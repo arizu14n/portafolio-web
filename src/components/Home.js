@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css'; // Importa estilos generales si es necesario
+import WavySeparator from './WavySeparator'; // Import the WavySeparator component
 
-const Home = () => {
+const Home = ({ isHomeContentFlyingAway }) => {
   const name = "ARRIEL ZULIÁN";
   const [typedName, setTypedName] = useState('');
   const [showCursorName, setShowCursorName] = useState(true);
@@ -124,7 +125,7 @@ const Home = () => {
 
   return (
     <section id="home" className="d-flex align-items-center justify-content-center text-center" style={{ minHeight: '100vh', backgroundColor: '#343a40', color: 'white' }}>
-      <div>
+      <div className={isHomeContentFlyingAway ? 'fly-away' : ''}> {/* Apply fly-away class conditionally */}
         <div className={`logo-container ${logoAnimationReady ? 'run-animation' : ''}`}>
           <img src={process.env.PUBLIC_URL + '/logo_piramide_codigo.svg'} alt="Logo AZ" width="200" height="200" className="d-block" />
         </div>
@@ -168,6 +169,7 @@ const Home = () => {
           </p>
         )}
       </div>
+          <WavySeparator /> {/* Render the WavySeparator here */}
     </section>
   );
 };
