@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css'; // Importa estilos generales si es necesario
 
 const Home = () => {
-  const name = "ARIEL ZULIÁN";
+  const name = "ARRIEL ZULIÁN";
   const [typedName, setTypedName] = useState('');
   const [showCursorName, setShowCursorName] = useState(true);
 
