@@ -2,7 +2,7 @@
   "name": "portafolio-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://arizu14n.github.io/portafolio-web",
+  "homepage": "https://arizu14n.github.io/portafolio-web",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@testing-library/dom": "^10.4.1",
@@ -40,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
