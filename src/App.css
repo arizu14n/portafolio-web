@@ -32,3 +32,86 @@ main {
   from, to { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Estilos para el efecto de escaneo del logo */
+.logo-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* La imagen de color es la base */
+.logo-container > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Capa de superposición en escala de grises que se recorta */
+.logo-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../public/logo_piramide_codigo.svg') center/contain no-repeat;
+  filter: grayscale(100%);
+  z-index: 2;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); /* Comienza como una franja de 0 de ancho a la izquierda */
+}
+
+/* La barra de escaneo */
+.logo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: #0f0;
+  box-shadow: 0 0 10px #0f0;
+  z-index: 3;
+  opacity: 0;
+}
+
+.logo-container.run-animation::after {
+  animation: grayscale-wipe 4s linear forwards;
+}
+
+.logo-container.run-animation::before {
+  animation: scan-move 4s linear forwards;
+}
+
+@keyframes scan-move {
+  0% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(200px); /* LTR */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0px); /* RTL */
+    opacity: 0; /* Desaparece al final */
+  }
+}
+
+@keyframes grayscale-wipe {
+  0% {
+    /* El área gris es de 0px de ancho a la izquierda */
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  50% {
+    /* El área gris cubre toda la imagen */
+    clip-path: polygon(0 0, 200px 0, 200px 100%, 0 100%);
+  }
+  100% {
+    /* El área gris se encoge de nuevo a 0px de ancho a la izquierda */
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+}

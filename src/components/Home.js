@@ -16,6 +16,7 @@ const Home = () => {
 
   const [currentLeadWordIndex, setCurrentLeadWordIndex] = useState(0);
   const [currentWordAnimationStep, setCurrentWordAnimationStep] = useState(0); // 0: initial, 1: red, 2: white, 3: shadow
+  const [logoAnimationReady, setLogoAnimationReady] = useState(false);
 
   // Efecto de tipeo para el Nombre
   useEffect(() => {
@@ -98,25 +99,21 @@ const Home = () => {
 
     if (animationStep === 4) { // Start this animation after the first one finishes
       if (currentLeadWordIndex < leadWords.length) {
-        const currentWord = leadWords[currentLeadWordIndex];
-
         if (currentWordAnimationStep === 0) { // Initial state for the word
-          // No specific style, just prepare for red
-          wordAnimationTimeout = setTimeout(() => setCurrentWordAnimationStep(1), 100); // Delay before red
+          wordAnimationTimeout = setTimeout(() => setCurrentWordAnimationStep(1), 50);
         } else if (currentWordAnimationStep === 1) { // Red
-          wordAnimationTimeout = setTimeout(() => setCurrentWordAnimationStep(2), 100); // Red for 0.5s
+          wordAnimationTimeout = setTimeout(() => setCurrentWordAnimationStep(2), 50);
         } else if (currentWordAnimationStep === 2) { // White
-          wordAnimationTimeout = setTimeout(() => setCurrentWordAnimationStep(3), 100); // White for 0.5s
+          wordAnimationTimeout = setTimeout(() => setCurrentWordAnimationStep(3), 50);
         } else if (currentWordAnimationStep === 3) { // Shadow
           wordAnimationTimeout = setTimeout(() => {
-            // Move to next word or reset for next word
-            setCurrentWordAnimationStep(0); // Reset step for next word
-            setCurrentLeadWordIndex(prevIndex => prevIndex + 1); // Move to next word
-          }, 100); // Shadow for 0.5s
+            setCurrentWordAnimationStep(0);
+            setCurrentLeadWordIndex(prevIndex => prevIndex + 1);
+          }, 50);
         }
       } else {
-        // All words animated, optionally loop or stop
-        // For now, let's just stop.
+        // All words animated, trigger logo animation
+        setTimeout(() => setLogoAnimationReady(true), 500); // Short delay before starting
       }
     }
 
@@ -128,7 +125,9 @@ const Home = () => {
   return (
     <section id="home" className="d-flex align-items-center justify-content-center text-center" style={{ minHeight: '100vh', backgroundColor: '#343a40', color: 'white' }}>
       <div>
-        <img src={process.env.PUBLIC_URL + '/logo_piramide_codigo.svg'} alt="Logo AZ" width="200" height="200" className="mx-auto d-block mb-4 logo-circular" />
+        <div className={`logo-container ${logoAnimationReady ? 'run-animation' : ''}`}>
+          <img src={process.env.PUBLIC_URL + '/logo_piramide_codigo.svg'} alt="Logo AZ" width="200" height="200" className="d-block" />
+        </div>
         <h1 style={{ textShadow: '2px 2px #1E1E1E' }}>
           {typedName}
           {showCursorName && <span className="blinking-cursor">|</span>}
