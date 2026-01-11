@@ -6,42 +6,6 @@ on:
       - master
 
 permissions:
-  contents: write # Esto da permiso a la Action para escribir en la rama gh-pages
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout del código
-        uses: actions/checkout@v4
-
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: 'npm' # Esto acelera futuras ejecuciones
-
-      - name: Instalar dependencias
-        # Usamos --legacy-peer-deps por si hay conflictos de versiones antiguas
-        run: npm install --legacy-peer-deps
-
-      - name: Compilar
-        run: npm run build
-
-      - name: Desplegar en gh-pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build
-          branch: gh-pages
-name: Deploy a GitHub Pages
-
-on:
-  push:
-    branches:
-      - master
-
-permissions:
   contents: write
 
 jobs:
@@ -62,7 +26,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Compilar
-        # Esta es la línea clave: CI=false permite ignorar los warnings de ESLint
+        # CI: false evita que los warnings detengan el despliegue
         run: npm run build
         env:
           CI: false
