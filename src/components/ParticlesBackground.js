@@ -38,7 +38,7 @@ const ParticlesBackground = () => {
 
                 if (this.isSymbol) {
                     this.symbol = codeSymbols[Math.floor(Math.random() * codeSymbols.length)];
-                    this.size = Math.random() * 10 + 12; // Tamaño de fuente 12-22px
+                    this.size = Math.random() * 12 + 18; // Tamaño de fuente 18-30px
                     this.isRed = Math.random() > 0.5;
                 } else {
                     this.size = Math.random() * 3 + 1;
