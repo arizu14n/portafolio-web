@@ -8,7 +8,7 @@ const Education = () => {
     {
       title: 'Técnico Superior en Desarrollo de Software',
       institution: 'Instituto Superior Villa del Rosario',
-      period: '04/2023 – Presente',
+      period: '04/2023 – 11/2025',
       notes: 'Reconocido como Abanderado del Instituto.'
     },
     {
