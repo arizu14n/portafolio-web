@@ -18,8 +18,8 @@ const Demos = () => {
                 'Control de caja y tablero de control'
             ],
             technologies: ['React', 'FastAPI', 'PostgreSQL', 'Docker'],
-            youtubeId: '', // Placeholder - agregar ID del video de YouTube
-            thumbnail: 'https://img.youtube.com/vi/YOUTUBE_ID/maxresdefault.jpg'
+            youtubeId: 'JhexoqrJytk',
+            thumbnail: 'https://img.youtube.com/vi/JhexoqrJytk/maxresdefault.jpg'
         },
         {
             id: 2,
