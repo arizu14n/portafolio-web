@@ -13,7 +13,7 @@ const Home = ({ isHomeContentFlyingAway }) => {
   const [typedCode, setTypedCode] = useState('');
   const [currentPhraseStyle, setCurrentPhraseStyle] = useState({});
 
-  const leadPhrase = "Integro conocimiento contable y tecnológico para desarrollar software que optimiza procesos y genera valor.";
+  const leadPhrase = "Integro conocimiento contable y tecnológico para el desarrollo de software que optimice procesos.";
   const leadWords = leadPhrase.split(' '); // Split into words
 
   const [currentLeadWordIndex, setCurrentLeadWordIndex] = useState(0);
