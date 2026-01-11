@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/portafolio-web/static/css/main.2b80e745.css",
-    "main.js": "/portafolio-web/static/js/main.32095b6a.js",
+    "main.js": "/portafolio-web/static/js/main.c81c2e6e.js",
     "static/js/453.3f19c221.chunk.js": "/portafolio-web/static/js/453.3f19c221.chunk.js",
     "static/media/logo_piramide_codigo.svg": "/portafolio-web/static/media/logo_piramide_codigo.bfa5038f24df9e55f9e2.svg",
     "index.html": "/portafolio-web/index.html",
     "main.2b80e745.css.map": "/portafolio-web/static/css/main.2b80e745.css.map",
-    "main.32095b6a.js.map": "/portafolio-web/static/js/main.32095b6a.js.map",
+    "main.c81c2e6e.js.map": "/portafolio-web/static/js/main.c81c2e6e.js.map",
     "453.3f19c221.chunk.js.map": "/portafolio-web/static/js/453.3f19c221.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2b80e745.css",
-    "static/js/main.32095b6a.js"
+    "static/js/main.c81c2e6e.js"
   ]
 }
