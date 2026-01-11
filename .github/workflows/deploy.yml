@@ -1,0 +1,30 @@
+name: Deploy a GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Cambia a 'main' si tu rama principal se llama así
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Instalar y Compilar
+        run: |
+          npm install
+          npm run build
+
+      - name: Desplegar en gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # La carpeta que genera React
+          branch: gh-pages # La rama donde se publica
