@@ -3,7 +3,10 @@ name: Deploy a GitHub Pages
 on:
   push:
     branches:
-      - master  # Cambia a 'main' si tu rama principal se llama así
+      - master
+
+permissions:
+  contents: write # Esto da permiso a la Action para escribir en la rama gh-pages
 
 jobs:
   build-and-deploy:
@@ -11,20 +14,23 @@ jobs:
 
     steps:
       - name: Checkout del código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'npm' # Esto acelera futuras ejecuciones
 
-      - name: Instalar y Compilar
-        run: |
-          npm install
-          npm run build
+      - name: Instalar dependencias
+        # Usamos --legacy-peer-deps por si hay conflictos de versiones antiguas
+        run: npm install --legacy-peer-deps
+
+      - name: Compilar
+        run: npm run build
 
       - name: Desplegar en gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build # La carpeta que genera React
-          branch: gh-pages # La rama donde se publica
+          folder: build
+          branch: gh-pages
