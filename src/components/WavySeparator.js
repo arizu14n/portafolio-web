@@ -64,14 +64,34 @@ const WavySeparator = () => {
     >
       <div className="wavy-figure">
         <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
-          {/* White wave fill */}
-          <path d="M0,70 C200,10 400,100 600,70 S800,0 1000,70 V100 H0 Z" fill="white"></path>
+          {/* Gradiente para la onda */}
+          <defs>
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#f8f9fa" />
+              <stop offset="50%" stopColor="#ffffff" />
+              <stop offset="100%" stopColor="#f8f9fa" />
+            </linearGradient>
+            {/* Glow effect para los dots */}
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Wave fill with gradient */}
+          <path d="M0,70 C200,10 400,100 600,70 S800,0 1000,70 V100 H0 Z" fill="url(#waveGradient)"></path>
+
+          {/* Línea de borde sutil en la onda */}
+          <path d="M0,70 C200,10 400,100 600,70 S800,0 1000,70" fill="none" stroke="rgba(230, 57, 70, 0.3)" strokeWidth="2"></path>
 
           {/* Motion path for the dots (hidden) */}
           <path id="motionPath" d={motionPath} fill="none" stroke="none" />
 
-          {/* Red Dot */}
-          <circle cx="0" cy="0" r="8" fill="red">
+          {/* Red Dot with glow */}
+          <circle cx="0" cy="0" r="10" fill="#E63946" filter="url(#glow)">
             <animateMotion
               ref={redDotAnimRef}
               dur="8s"
@@ -85,8 +105,8 @@ const WavySeparator = () => {
             </animateMotion>
           </circle>
 
-          {/* Black Dot */}
-          <circle cx="0" cy="0" r="8" fill="black">
+          {/* White Dot with dark border */}
+          <circle cx="0" cy="0" r="8" fill="white" stroke="#343a40" strokeWidth="2">
             <animateMotion
               ref={blackDotAnimRef}
               dur="10s"
@@ -104,12 +124,19 @@ const WavySeparator = () => {
 
       <div className="wavy-hover-effect" onClick={handleScrollToAbout}>
         <svg viewBox="0 0 1000 100" preserveAspectRatio="none">
-          <path d="M0,70 C200,10 400,100 600,70 S800,0 1000,70 V100 H0 Z" fill="red"></path>
+          <defs>
+            <linearGradient id="hoverGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#c62836" />
+              <stop offset="50%" stopColor="#E63946" />
+              <stop offset="100%" stopColor="#c62836" />
+            </linearGradient>
+          </defs>
+          <path d="M0,70 C200,10 400,100 600,70 S800,0 1000,70 V100 H0 Z" fill="url(#hoverGradient)"></path>
         </svg>
         <div className="wavy-text-content">
-          <span className="arrow-down">&#x2193;</span>
-          <span>Abajo se pone más interesante. Haz Click!!!</span>
-          <span className="arrow-down">&#x2193;</span>
+          <span className="arrow-down pulse-animation">&#x2193;</span>
+          <span className="wavy-cta-text">Abajo se pone más interesante. ¡Haz Click!</span>
+          <span className="arrow-down pulse-animation">&#x2193;</span>
         </div>
       </div>
     </div>

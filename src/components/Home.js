@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css'; // Importa estilos generales si es necesario
 import WavySeparator from './WavySeparator'; // Import the WavySeparator component
+import ParticlesBackground from './ParticlesBackground'; // Import particles
 
 const Home = ({ isHomeContentFlyingAway }) => {
   const name = "ARRIEL ZULIÁN";
@@ -82,10 +83,10 @@ const Home = ({ isHomeContentFlyingAway }) => {
       setCurrentPhraseStyle({ color: '#E63946' });
       stepTimeoutId = setTimeout(() => setAnimationStep(3), 1500);
     } else if (animationStep === 3) {
-      setCurrentPhraseStyle({ color: '#E63946', textShadow: '2px 2px #1E1E1E' });
+      setCurrentPhraseStyle({ color: '#E63946', textShadow: '0 0 10px rgba(230, 57, 70, 0.8), 0 0 20px rgba(230, 57, 70, 0.5), 2px 2px #1E1E1E' });
       stepTimeoutId = setTimeout(() => setAnimationStep(4), 1500);
     } else if (animationStep === 4) {
-      setCurrentPhraseStyle({ color: '#E63946', textShadow: '2px 2px #1E1E1E' });
+      setCurrentPhraseStyle({ color: '#E63946', textShadow: '0 0 10px rgba(230, 57, 70, 0.8), 0 0 20px rgba(230, 57, 70, 0.5), 2px 2px #1E1E1E' });
       // No further steps, animation ends here or loops if desired
     }
 
@@ -124,8 +125,9 @@ const Home = ({ isHomeContentFlyingAway }) => {
   }, [animationStep, currentLeadWordIndex, currentWordAnimationStep, leadWords.length]);
 
   return (
-    <section id="home" className="d-flex align-items-center justify-content-center text-center" style={{ minHeight: '100vh', backgroundColor: '#343a40', color: 'white' }}>
-      <div className={isHomeContentFlyingAway ? 'fly-away' : ''}> {/* Apply fly-away class conditionally */}
+    <section id="home" className="d-flex align-items-center justify-content-center text-center" style={{ minHeight: '100vh', backgroundColor: '#343a40', color: 'white', position: 'relative', overflow: 'hidden' }}>
+      <ParticlesBackground />
+      <div className={isHomeContentFlyingAway ? 'fly-away' : ''} style={{ position: 'relative', zIndex: 2 }}> {/* Apply fly-away class conditionally */}
         <div className={`logo-container ${logoAnimationReady ? 'run-animation' : ''}`}>
           <img src={process.env.PUBLIC_URL + '/logo_piramide_codigo.svg'} alt="Logo AZ" width="200" height="200" className="d-block" />
         </div>
@@ -139,7 +141,7 @@ const Home = ({ isHomeContentFlyingAway }) => {
         )}
         {animationStep > 1 && (
           <h2 style={currentPhraseStyle}>{phrase}</h2>
-        )} 
+        )}
         {animationStep >= 4 && (
           <p className="lead">
             {leadWords.map((word, index) => {
@@ -169,7 +171,7 @@ const Home = ({ isHomeContentFlyingAway }) => {
           </p>
         )}
       </div>
-          <WavySeparator /> {/* Render the WavySeparator here */}
+      <WavySeparator /> {/* Render the WavySeparator here */}
     </section>
   );
 };
