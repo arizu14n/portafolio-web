@@ -2,6 +2,19 @@ import React from 'react';
 
 const Experience = () => {
   const experiences = [
+ {
+      role: 'Desarrollador Freelance',
+      company: 'AZ - Solutions',
+      period: '11/2025 – Presente',
+      location: 'Villa del Rosario, Córdoba, Argentina',
+      tasks: [
+        'Desarrollé 2 sistemas erp que ya han sido implementados en producción',
+        'Desarrollé un erp genérico para tener de modelo para posibles clientes.',
+        'Desarrollé un plug-in para potenciar un software Legacy en mi trabajo de oficina.',
+        'Desarrollando un software para uso en operadores de la cadena agrícola.'
+      ]
+    },
+    
     {
       role: 'Pasantía como Desarrollador Junior',
       company: 'GoodApps',
