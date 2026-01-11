@@ -8,7 +8,7 @@ const About = () => {
         <div className="row">
           <div className="col-lg-8 mx-auto text-center">
             <p className="lead">
-              Profesional con 30+ años de experiencia en administración de empresas, actualmente en transición de carrera hacia el desarrollo de software. Apasionado por el aprendizaje continuo y la aplicación de conocimientos en la creación de aplicaciones funcionales que resuelvan problemas reales.
+              Soy Técnico Superior en Desarrollo de Software. Tengo 30+ años trabajando en Administración de Empresas. Formación en Ciencias Económicas, con 2 títulos Universitarios. Estoy incorporando toda esa formación y experiencia en el desarrollo de software. Apasionado por el aprendizaje continuo y la aplicación de conocimientos en la creación de aplicaciones funcionales que resuelvan problemas reales.
             </p>
             <hr className="my-4" />
             <p>Villa del Rosario, Córdoba, Argentina</p>
