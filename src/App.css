@@ -141,8 +141,8 @@ main {
 .wavy-separator-container {
   position: absolute;
   /* Posicionar absolutamente dentro de la sección Home */
-  bottom: 0;
-  /* Pegar a la parte inferior de la sección Home */
+  bottom: 40px;
+  /* Más arriba para no ser tapado por la barra de tareas */
   left: 0;
   width: 100%;
   height: 100px;
