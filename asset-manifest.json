@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/portafolio-web/static/css/main.1ebf0f46.css",
-    "main.js": "/portafolio-web/static/js/main.09f8769a.js",
+    "main.css": "/portafolio-web/static/css/main.4ba30b97.css",
+    "main.js": "/portafolio-web/static/js/main.fa160fbb.js",
     "static/js/453.3f19c221.chunk.js": "/portafolio-web/static/js/453.3f19c221.chunk.js",
     "static/media/logo_piramide_codigo.svg": "/portafolio-web/static/media/logo_piramide_codigo.bfa5038f24df9e55f9e2.svg",
     "index.html": "/portafolio-web/index.html",
-    "main.1ebf0f46.css.map": "/portafolio-web/static/css/main.1ebf0f46.css.map",
-    "main.09f8769a.js.map": "/portafolio-web/static/js/main.09f8769a.js.map",
+    "main.4ba30b97.css.map": "/portafolio-web/static/css/main.4ba30b97.css.map",
+    "main.fa160fbb.js.map": "/portafolio-web/static/js/main.fa160fbb.js.map",
     "453.3f19c221.chunk.js.map": "/portafolio-web/static/js/453.3f19c221.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ebf0f46.css",
-    "static/js/main.09f8769a.js"
+    "static/css/main.4ba30b97.css",
+    "static/js/main.fa160fbb.js"
   ]
 }
