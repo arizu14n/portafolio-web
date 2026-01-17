@@ -129,7 +129,7 @@ const Home = ({ isHomeContentFlyingAway }) => {
       <ParticlesBackground />
       <div className={isHomeContentFlyingAway ? 'fly-away' : ''} style={{ position: 'relative', zIndex: 2 }}> {/* Apply fly-away class conditionally */}
         <div className={`logo-container ${logoAnimationReady ? 'run-animation' : ''}`}>
-          <img src={process.env.PUBLIC_URL + '/logo_piramide_codigo.svg'} alt="Logo AZ" width="200" height="200" className="d-block" />
+          <img src={process.env.PUBLIC_URL + '/logoAZ.png'} alt="Logo AZ" width="200" height="200" className="d-block" />
         </div>
         <h1 style={{ textShadow: '2px 2px #1E1E1E' }}>
           {typedName}
