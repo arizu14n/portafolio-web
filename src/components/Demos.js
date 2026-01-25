@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 const Demos = () => {
-    const [selectedDemo, setSelectedDemo] = useState(null);
+    const [selectedVideo, setSelectedVideo] = useState(null);
 
     const demos = [
         {
             id: 1,
-            name: 'ERP Comercio PYM',
+            name: 'ERP Comercio PyME',
             category: 'Sistema de Gestión Comercial',
             description: 'Software de gestión integral para comercios enfocados en venta al público. Diseñado para PyMEs que necesitan control total de su operación.',
             features: [
@@ -18,8 +18,10 @@ const Demos = () => {
                 'Control de caja y tablero de control'
             ],
             technologies: ['React', 'FastAPI', 'PostgreSQL', 'Docker'],
-            youtubeId: '', // Pendiente - video con datos desenfocados
-            thumbnail: 'https://img.youtube.com/vi/YOUTUBE_ID/maxresdefault.jpg'
+            videos: [
+                { name: 'Modo Vendedor', youtubeId: '2z4x9s_GY5M' },
+                { name: 'Modo Supervisor', youtubeId: '10dPiKCUUCA' }
+            ]
         },
         {
             id: 2,
@@ -35,8 +37,9 @@ const Demos = () => {
                 'Control de caja y tablero de control'
             ],
             technologies: ['React', 'FastAPI', 'SQL Server', 'Azure', 'Docker'],
-            youtubeId: '', // Placeholder - agregar ID del video de YouTube
-            thumbnail: 'https://img.youtube.com/vi/YOUTUBE_ID/maxresdefault.jpg'
+            videos: [
+                { name: 'Demo General', youtubeId: 'xjJjA4WSCiU' }
+            ]
         },
         {
             id: 3,
@@ -52,18 +55,19 @@ const Demos = () => {
                 'Pedidos de cupos por WhatsApp'
             ],
             technologies: ['Python', 'Flask', 'PostgreSQL', 'Docker', 'HTML/CSS/JS'],
-            youtubeId: 'MyZ_JW0Cjmo',
-            thumbnail: 'https://img.youtube.com/vi/MyZ_JW0Cjmo/maxresdefault.jpg'
+            videos: [
+                { name: 'Demo General', youtubeId: 'MyZ_JW0Cjmo' }
+            ]
         }
     ];
 
-    const openModal = (demo) => {
-        setSelectedDemo(demo);
+    const openModal = (demo, video) => {
+        setSelectedVideo({ demo, video });
         document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
-        setSelectedDemo(null);
+        setSelectedVideo(null);
         document.body.style.overflow = 'auto';
     };
 
@@ -71,6 +75,11 @@ const Demos = () => {
         if (e.target.classList.contains('demo-modal-backdrop')) {
             closeModal();
         }
+    };
+
+    // Verifica si el proyecto tiene al menos un video disponible
+    const hasAvailableVideos = (demo) => {
+        return demo.videos && demo.videos.some(v => v.youtubeId);
     };
 
     return (
@@ -110,21 +119,33 @@ const Demos = () => {
                                         ))}
                                     </div>
 
-                                    <button
-                                        className="btn btn-demo-watch"
-                                        onClick={() => openModal(demo)}
-                                        disabled={!demo.youtubeId}
-                                    >
-                                        {demo.youtubeId ? (
-                                            <>
-                                                <span className="play-icon">▶</span> Ver Demo
-                                            </>
+                                    {/* Botones de video */}
+                                    <div className="demo-video-buttons">
+                                        {hasAvailableVideos(demo) ? (
+                                            demo.videos.map((video, i) => (
+                                                <button
+                                                    key={i}
+                                                    className={`btn btn-demo-watch ${!video.youtubeId ? 'btn-demo-disabled' : ''}`}
+                                                    onClick={() => openModal(demo, video)}
+                                                    disabled={!video.youtubeId}
+                                                >
+                                                    {video.youtubeId ? (
+                                                        <>
+                                                            <span className="play-icon">▶</span> {video.name}
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <span className="coming-soon-icon">🎬</span> {video.name}
+                                                        </>
+                                                    )}
+                                                </button>
+                                            ))
                                         ) : (
-                                            <>
+                                            <button className="btn btn-demo-watch btn-demo-disabled" disabled>
                                                 <span className="coming-soon-icon">🎬</span> Próximamente
-                                            </>
+                                            </button>
                                         )}
-                                    </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -133,19 +154,19 @@ const Demos = () => {
             </div>
 
             {/* Modal para reproducir video */}
-            {selectedDemo && (
+            {selectedVideo && (
                 <div className="demo-modal-backdrop" onClick={handleBackdropClick}>
                     <div className="demo-modal">
                         <button className="demo-modal-close" onClick={closeModal}>×</button>
                         <div className="demo-modal-header">
-                            <h3>{selectedDemo.name}</h3>
-                            <span className="demo-category-badge">{selectedDemo.category}</span>
+                            <h3>{selectedVideo.demo.name} - {selectedVideo.video.name}</h3>
+                            <span className="demo-category-badge">{selectedVideo.demo.category}</span>
                         </div>
                         <div className="demo-modal-video">
-                            {selectedDemo.youtubeId ? (
+                            {selectedVideo.video.youtubeId ? (
                                 <iframe
-                                    src={`https://www.youtube.com/embed/${selectedDemo.youtubeId}?autoplay=1`}
-                                    title={selectedDemo.name}
+                                    src={`https://www.youtube.com/embed/${selectedVideo.video.youtubeId}?autoplay=1`}
+                                    title={`${selectedVideo.demo.name} - ${selectedVideo.video.name}`}
                                     frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
@@ -157,15 +178,15 @@ const Demos = () => {
                             )}
                         </div>
                         <div className="demo-modal-body">
-                            <p>{selectedDemo.description}</p>
+                            <p>{selectedVideo.demo.description}</p>
                             <h6>Todas las características:</h6>
                             <ul>
-                                {selectedDemo.features.map((feature, i) => (
+                                {selectedVideo.demo.features.map((feature, i) => (
                                     <li key={i}>{feature}</li>
                                 ))}
                             </ul>
                             <div className="demo-technologies">
-                                {selectedDemo.technologies.map((tech, i) => (
+                                {selectedVideo.demo.technologies.map((tech, i) => (
                                     <span key={i} className="demo-tech-badge">{tech}</span>
                                 ))}
                             </div>
