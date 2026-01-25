@@ -12,6 +12,12 @@ const Education = () => {
       notes: 'Reconocido como Abanderado del Instituto.'
     },
     {
+      title: 'Técnico Universitario en Administración',
+      institution: 'Instituto Universitario Aeronáutico',
+      period: '2019',
+      notes: 'Título intermedio de la carrera de Contador Público Nacional.'
+    },
+    {
       title: 'Contador Público Nacional',
       institution: 'Instituto Universitario Aeronáutico',
       period: '04/2013 – 02/2021',
@@ -20,11 +26,11 @@ const Education = () => {
   ];
 
   const certifications = [
-      { name: 'Desarrollador Web Full Stack PHP', issuer: 'Universidad Nacional de Rosario', pdfUrl: '/certificates/php_fullstack.pdf' },
-      { name: 'Desarrollador Web Full Stack NodeJS', issuer: 'Codo a Codo (Gobierno de la Ciudad de Buenos Aires)', pdfUrl: '/certificates/nodejs_fullstack.pdf' },
-      { name: 'Desarrollador Python', issuer: 'Academia ItMaster+', pdfUrl: '/certificates/python_dev.pdf' },
-      { name: 'Desarrollo Web Responsivo', issuer: 'freeCodeCamp', pdfUrl: '/certificates/responsive_web.pdf' },
-      { name: 'Curso de Habilidades Blandas', issuer: 'Codo a Codo (Gobierno de la Ciudad de Buenos Aires)', pdfUrl: '/certificates/soft_skills.pdf' },
+    { name: 'Desarrollador Web Full Stack PHP', issuer: 'Universidad Nacional de Rosario', pdfUrl: '/certificates/php_fullstack.pdf' },
+    { name: 'Desarrollador Web Full Stack NodeJS', issuer: 'Codo a Codo (Gobierno de la Ciudad de Buenos Aires)', pdfUrl: '/certificates/nodejs_fullstack.pdf' },
+    { name: 'Desarrollador Python', issuer: 'Academia ItMaster+', pdfUrl: '/certificates/python_dev.pdf' },
+    { name: 'Desarrollo Web Responsivo', issuer: 'freeCodeCamp', pdfUrl: '/certificates/responsive_web.pdf' },
+    { name: 'Curso de Habilidades Blandas', issuer: 'Codo a Codo (Gobierno de la Ciudad de Buenos Aires)', pdfUrl: '/certificates/soft_skills.pdf' },
   ];
 
   const handleShowModal = (url) => {
@@ -58,12 +64,12 @@ const Education = () => {
           <div className="col-md-6">
             <h4 className="text-center mb-4">Certificaciones</h4>
             <div className="list-group">
-                {certifications.map((cert, i) => (
-                    <div key={i} className="list-group-item list-group-item-action" onClick={() => handleShowModal(process.env.PUBLIC_URL + cert.pdfUrl)} style={{ cursor: 'pointer' }}>
-                        <h6 className="mb-1">{cert.name}</h6>
-                        <small className="text-muted">{cert.issuer}</small>
-                    </div>
-                ))}
+              {certifications.map((cert, i) => (
+                <div key={i} className="list-group-item list-group-item-action" onClick={() => handleShowModal(process.env.PUBLIC_URL + cert.pdfUrl)} style={{ cursor: 'pointer' }}>
+                  <h6 className="mb-1">{cert.name}</h6>
+                  <small className="text-muted">{cert.issuer}</small>
+                </div>
+              ))}
             </div>
           </div>
         </div>
