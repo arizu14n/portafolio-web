@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/portafolio-web/static/css/main.97ae78e7.css",
-    "main.js": "/portafolio-web/static/js/main.7454d247.js",
+    "main.css": "/portafolio-web/static/css/main.71d07523.css",
+    "main.js": "/portafolio-web/static/js/main.ac032514.js",
     "static/js/453.3f19c221.chunk.js": "/portafolio-web/static/js/453.3f19c221.chunk.js",
     "static/media/logoAZ.png": "/portafolio-web/static/media/logoAZ.ce911e97bdb53d1bd173.png",
     "index.html": "/portafolio-web/index.html",
-    "main.97ae78e7.css.map": "/portafolio-web/static/css/main.97ae78e7.css.map",
-    "main.7454d247.js.map": "/portafolio-web/static/js/main.7454d247.js.map",
+    "main.71d07523.css.map": "/portafolio-web/static/css/main.71d07523.css.map",
+    "main.ac032514.js.map": "/portafolio-web/static/js/main.ac032514.js.map",
     "453.3f19c221.chunk.js.map": "/portafolio-web/static/js/453.3f19c221.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.97ae78e7.css",
-    "static/js/main.7454d247.js"
+    "static/css/main.71d07523.css",
+    "static/js/main.ac032514.js"
   ]
 }
