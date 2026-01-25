@@ -21,8 +21,8 @@ function App() {
         <Home isHomeContentFlyingAway={isHomeContentFlyingAway} />
         <About />
         <Experience />
-        <Projects />
         <Demos />
+        <Projects />
         <Skills />
         <Education />
         <Contact />

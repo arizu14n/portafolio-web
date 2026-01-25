@@ -52,8 +52,8 @@ const Demos = () => {
                 'Pedidos de cupos por WhatsApp'
             ],
             technologies: ['Python', 'Flask', 'PostgreSQL', 'Docker', 'HTML/CSS/JS'],
-            youtubeId: '', // Placeholder - agregar ID del video de YouTube
-            thumbnail: 'https://img.youtube.com/vi/YOUTUBE_ID/maxresdefault.jpg'
+            youtubeId: 'MyZ_JW0Cjmo',
+            thumbnail: 'https://img.youtube.com/vi/MyZ_JW0Cjmo/maxresdefault.jpg'
         }
     ];
 
