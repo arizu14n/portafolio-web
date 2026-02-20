@@ -5,6 +5,24 @@ const Demos = () => {
 
     const demos = [
         {
+            id: 4,
+            name: 'ERP Librería Artística',
+            category: 'Sistema de Gestión Simplificado',
+            description: 'ERP simplificado para una librería artística con interfaz moderna y estética cuidada. Base de datos diseñada para soportar una futura implementación de e-commerce y facturación electrónica AFIP.',
+            features: [
+                'Interfaz moderna con Tailwind CSS',
+                'Kardex mostrador para consultas por ID',
+                'Gestión de productos y categorías',
+                'Control de stock y movimientos',
+                'Preparado para e-commerce futuro',
+                'Preparado para facturación electrónica AFIP'
+            ],
+            technologies: ['Python', 'FastAPI', 'React Vite', 'PostgreSQL', 'Docker'],
+            videos: [
+                { name: 'Demo General', youtubeId: '-JD2JTDUTEE' }
+            ]
+        },
+        {
             id: 1,
             name: 'ERP Comercio PyME',
             category: 'Sistema de Gestión Comercial',
