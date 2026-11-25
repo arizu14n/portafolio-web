@@ -8,8 +8,8 @@ const Experience = () => {
       period: '11/2025 – Presente',
       location: 'Villa del Rosario, Córdoba, Argentina',
       tasks: [
-        'Desarrollé 2 sistemas ERP que ya han sido implementados en producción',
-        'Desarrollé un ERP genérico para tener de modelo para posibles clientes.',
+        'Desarrollé 8 sistemas ERP a medida que ya han sido implementados en producción',
+        'Desarrollé un ERP genérico para ofrecer posibles clientes.',
         'Desarrollé un plug-in para potenciar un software Legacy en mi trabajo de oficina.',
         'Desarrollando un software para operadores de la cadena agrícola.'
       ],
